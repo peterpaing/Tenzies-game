@@ -48,7 +48,20 @@ export default function Main(){
 }
  
     
+function rollBtn(){
+    setButton(preBtn=>
+        preBtn.map(n=>{
+            if (!n.isHeld){
+                return {
+                    ...n,
+                    value : Math.floor(Math.random()* 6)+1 ,
+                }
+            }
 
+            return n
+        })
+    )
+}
 
 
 return (
@@ -56,7 +69,7 @@ return (
        <section>
         {RenderBtn}
         </section>
-        <button className="roll">Roll</button>
+        <button className="roll" onClick={rollBtn}>Roll</button>
     </main>
 )
 }
