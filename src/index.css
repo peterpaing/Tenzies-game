@@ -57,7 +57,7 @@ main {
 }
 
 
-main button {
+button {
     width: 3.175rem;
     height: 3.175rem;
     border-radius: 0.238125em;
@@ -70,3 +70,6 @@ main button {
     box-shadow: 0 0.125em 0.125em rgba(0, 0, 0, 0.15);
 }
 
+.green{
+    background-color: #59E391;
+}

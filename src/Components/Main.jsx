@@ -1,26 +1,59 @@
 import { useState } from "react"
+import clsx from 'clsx'
 
 export default function Main(){
 
-   const [button,setButton]=useState(()=>btnRender())
+   const [button,setButton]=useState(()=>btnNumber())
 
 
-   function btnRender(){
 
+
+   function btnNumber(){
     const dies=[]
 
      for (let i=0 ; i < 10 ; i++){
         const randomNum = Math.floor(Math.random()* 6)+1
-        dies.push (randomNum)
+        dies.push ({
+            value: randomNum ,
+            isHeld: false,
+            id : i
+        })
     }
-
-    return dies.map((n,index)=><button key={index}>{n}</button>)
-    
+    return dies
 }
+
+  const RenderBtn = button.map((n, index) => (
+    <button
+        key={index}
+        onClick={()=>handleClick(index)}
+        className={clsx(n.isHeld ? "green" : '')}
+    >
+        {n.value}
+    </button>
+))
+
+ function handleClick(index) {
+    setButton(preBtn =>
+        preBtn.map(n => {
+            if (n.id === index) {
+                return {
+                    ...n,
+                    isHeld: ! n.isHeld
+                }
+            }
+
+            return n
+        })
+    )
+}
+ 
+    
+
+
 
 return (
     <main>
-        {button}
+        {RenderBtn}
     </main>
 )
 }
