@@ -16,9 +16,9 @@ body{
     background-color: #0B2434;
 }
 
-header{
+.game-container{
     width: 390px;
-    height: 550px;
+    height: 450px;
     background-color: #F5F5F5;
     margin: auto;
     border-radius: 10px;
@@ -26,16 +26,18 @@ header{
 }
 
 header h1 {
-    padding-top: 1.0625em;
+    padding-top: 2.0625em;
     padding-bottom: 0.2em;
     font-weight: 700;
     font-size: 2rem;
+    color:#2B283A;
     line-height: 100%;
     letter-spacing: -0.03em;
 }
 
 header p {
     width: 14.56rem;
+    padding-top: 0.5em;
     margin: auto;
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -43,3 +45,28 @@ header p {
     line-height: 100%;
     letter-spacing: -0.03em;
 }
+
+main {
+    width: 100%;
+    padding: 0 2.125em;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row: auto;
+    gap: 1.125em;
+}
+
+
+main button {
+    width: 3.175rem;
+    height: 3.175rem;
+    border-radius: 0.238125em;
+    font-family: "Karla", sans-serif;
+    font-weight: 700;
+    font-size: 1.286875rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0 0.125em 0.125em rgba(0, 0, 0, 0.15);
+}
+
