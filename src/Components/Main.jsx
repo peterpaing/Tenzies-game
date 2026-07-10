@@ -64,12 +64,18 @@ function rollBtn(){
 }
 
 
+const gameWin = button.every(n=> n.isHeld)
+
+function againBtn (){
+    setButton(btnNumber())
+}
+
 return (
     <main>
        <section>
         {RenderBtn}
         </section>
-        <button className="roll" onClick={rollBtn}>Roll</button>
+        <button className="roll" onClick={gameWin ? againBtn :rollBtn}>{gameWin ?"Again": "Roll"}</button>
     </main>
 )
 }
