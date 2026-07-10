@@ -53,7 +53,10 @@ export default function Main(){
 
 return (
     <main>
+       <section>
         {RenderBtn}
+        </section>
+        <button className="roll">Roll</button>
     </main>
 )
 }
