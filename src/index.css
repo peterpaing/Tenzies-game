@@ -1,3 +1,15 @@
+:root {
+    --clr-white: #FFFFFF;
+    --clr-body-bg-dark: #0B2434;
+    --clr-text-main: #4A4E74;
+    --clr-container-bg: #F5F5F5;
+    --clr-heading: #2B283A;
+    --clr-time-green: #49b172;
+    --clr-time-shadow: #d9d5f0;
+    --clr-btn-green: #59E391;
+    --clr-btn-roll: #5035FF;
+}
+
 *{
     box-sizing: border-box;
     margin:0;
@@ -7,19 +19,19 @@
 body{
     width: 100vw;
     height: 100vh;
-    background-color: #FFFFFF;
-    color:#4A4E74;
+    background-color: var(--clr-white);
+    color: var(--clr-text-main);
     font-family: "Karla", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0B2434;
+    background-color: var(--clr-body-bg-dark);
 }
 
 .game-container{
     width: 390px;
     height: 520px;
-    background-color: #F5F5F5;
+    background-color: var(--clr-container-bg);
     margin: auto;
     border-radius: 10px;
     text-align: center;
@@ -30,7 +42,7 @@ header h1 {
     padding-bottom: 0.2em;
     font-weight: 700;
     font-size: 2rem;
-    color:#2B283A;
+    color: var(--clr-heading);
     line-height: 100%;
     letter-spacing: -0.03em;
 }
@@ -65,8 +77,8 @@ section{
 }
 
 .green-time{
-    color:#49b172;
-    text-shadow: 1px 1px 1px #d9d5f0;
+    color: var(--clr-time-green);
+    text-shadow: 1px 1px 1px var(--clr-time-shadow);
 }
 
 button {
@@ -77,18 +89,18 @@ button {
     font-weight: 700;
     font-size: 1.286875rem;
     text-align: center;
-    background-color: #FFFFFF;
+    background-color: var(--clr-white);
     border: none;
     box-shadow: 0 0.125em 0.125em rgba(0, 0, 0, 0.15);
 }
 
 .green-btn{
-    background-color: #59E391;
+    background-color: var(--clr-btn-green);
 }
 
 .roll{
-    background-color: #5035FF;
-    color:#FFFFFF;
+    background-color: var(--clr-btn-roll);
+    color: var(--clr-white);
     font-family: "Karla", sans-serif;
     font-weight: 700;
     font-size: 16.38px;
