@@ -36,20 +36,20 @@ header h1 {
 }
 
 header p {
-    width: 14.56rem;
-    padding-top: 0.5em;
+    width: 15.56rem;
+    padding-top: 1em;
     margin: auto;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 0.9rem;
-    line-height: 100%;
+    font-size: 1rem;
+    line-height: 150%;
     letter-spacing: -0.03em;
 }
 
 main {
     width: 100%;
     padding: 0 2.125em;
-    margin: 5rem auto;
+    margin: 4rem auto;
     
 }
 section{

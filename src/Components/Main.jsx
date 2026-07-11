@@ -1,5 +1,7 @@
 import { useState } from "react"
 import clsx from 'clsx'
+import Confetti from 'react-confetti'
+
 
 export default function Main(){
 
@@ -72,10 +74,11 @@ function againBtn (){
 
 return (
     <main>
+       {gameWin ? <Confetti/> : null}
        <section>
         {RenderBtn}
         </section>
-        <button className="roll" onClick={gameWin ? againBtn :rollBtn}>{gameWin ?"Again": "Roll"}</button>
+        <button className="roll" onClick={gameWin ? againBtn :rollBtn}>{gameWin ?"Win!": "Roll"}</button>
     </main>
 )
 }
