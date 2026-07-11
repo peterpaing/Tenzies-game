@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { use, useState } from "react"
+import { useEffect } from "react"
 import clsx from 'clsx'
 import Confetti from 'react-confetti'
 
 
 export default function Main(){
 
-   const [button,setButton]=useState(()=>btnNumber())
-
-
+   const [button , setButton]=useState(()=>btnNumber())
+   const gameWin = button.every(n=> n.isHeld)
+   const [showTime, setShowTime] = useState(0)
+   const [isGameStart , setGameStart ] = useState(false)
+   const minutes = String(Math.floor(showTime / 60)).padStart(2, "0")
+   const seconds = String(showTime % 60).padStart(2, "0")
 
 
    function btnNumber(){
@@ -24,11 +28,12 @@ export default function Main(){
     return dies
 }
 
-  const RenderBtn = button.map((n, index) => (
+
+ const RenderBtn = button.map((n, index) => (
     <button
         key={index}
         onClick={()=>handleClick(index)}
-        className={clsx(n.isHeld ? "green" : '')}
+        className={clsx(n.isHeld ? "green-btn" : '')}
     >
         {n.value}
     </button>
@@ -38,6 +43,7 @@ export default function Main(){
     setButton(preBtn =>
         preBtn.map(n => {
             if (n.id === index) {
+                setGameStart (true)
                 return {
                     ...n,
                     isHeld: ! n.isHeld
@@ -49,6 +55,23 @@ export default function Main(){
     )
 }
  
+
+    useEffect(() => {
+
+    let time = 1
+
+    if(isGameStart && !gameWin){
+
+    const id = setInterval(() => {
+        time = time + 1
+        setShowTime(time)
+    }, 1000)
+
+    return () => clearInterval(id)
+}
+}, [isGameStart,gameWin])
+
+
     
 function rollBtn(){
     setButton(preBtn=>
@@ -66,17 +89,18 @@ function rollBtn(){
 }
 
 
-const gameWin = button.every(n=> n.isHeld)
-
-function againBtn (){
+function againBtn() {
     setButton(btnNumber())
+    setGameStart(false)
+    setShowTime(0)
 }
 
 return (
     <main>
        {gameWin ? <Confetti/> : null}
+       <p className={clsx("time", gameWin ? "green-time" : '')} >{minutes}:{seconds}</p>
        <section>
-        {RenderBtn}
+       {RenderBtn}
         </section>
         <button className="roll" onClick={gameWin ? againBtn :rollBtn}>{gameWin ?"Win!": "Roll"}</button>
     </main>
